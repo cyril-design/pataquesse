@@ -3,15 +3,15 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["starter_repo"]
+packages = ["pataquesse_code"]
 
 [project]
-name = "starter-repo"
+name = "pataquesse"
 version = "0.1.0"
 authors = [
-    { name="Graham Neubig", email="neubig@gmail.com" },
+    { name="Cyril K", email="cyrilk@tuta.io" },
 ]
-description = "A starter repository demonstrating Python best practices"
+description = "A starter repository for a Newby Python's Flying Project"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"
@@ -35,7 +35,21 @@ line-length = 100
 [tool.ruff.lint]
 select = ["E", "F", "I"]
 
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+namespace_packages = true
 
+[[tool.mypy.overrides]]
+module = [
+    "numpy.*",
+    "matplotlib.*",
+    "pandas.*",
+]
+ignore_errors = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
